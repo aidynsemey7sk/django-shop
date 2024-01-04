@@ -40,9 +40,11 @@ INSTALLED_APPS = [
     # Local
     'shop.apps.ShopConfig',
     'api.apps.ApiConfig',
-    # 3rd party
+    # 3rd-party apps
     'rest_framework',
     'corsheaders',
+    'rest_framework.authtoken',
+    'rest_auth',
 ]
 
 MIDDLEWARE = [
@@ -134,12 +136,9 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.AllowAny',
-    ]
-}
+REST_FRAMEWORK = { 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' }
 
 # CORS_ORIGIN_WHITELIST = (
 #     'localhost:3000'
 # )
+
